@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           main.ShoppingBasketApp.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Product
+GET         /api/products               shoppingbasket.controllers.ProductController.products(page: Int ?= 1, pageSize: Int ?= 50, available: Option[Boolean])
+GET         /api/products/:id           shoppingbasket.controllers.ProductController.product(id: String)
+
+# Shopping Basket
+POST        /api/shoppingbaskets        shoppingbasket.controllers.BasketController.post()
+GET         /api/shoppingbaskets/:id    shoppingbasket.controllers.BasketController.get(id: String)
+
+# Shopping Basket Item Operations
+GET         /api/shoppingbaskets/:basketId/items/:itemId        shoppingbasket.controllers.BasketItemController.itemByBasket(basketId: String, itemId: String)
+DELETE      /api/shoppingbaskets/:basketId/items/:itemId        shoppingbasket.controllers.BasketItemController.deleteItemFromBasket(basketId: String, itemId: String)
+POST        /api/shoppingbaskets/:basketId/items                shoppingbasket.controllers.BasketItemController.addItemToBasket(basketId)

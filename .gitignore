@@ -1,0 +1,32 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+/*.iml
+/out
+
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+
+# sbt specific
+.cache
+.lib/
+dist/*
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+.idea
+/.idea
+/.idea_modules
+
+    
